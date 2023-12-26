@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>01: Criando um Objeto</title>
+	</head>
+	<body>
+		<h1>Criando um Objeto</h1>
+		<fieldset>
+			<script>
+				// Declarando um objeto
+				const person = {
+					firstName: "John",
+					lastName: "Doe",
+					age: 50,
+					weight: 81.76,
+					married: true,
+				};
+
+				document.write(
+					`${person.firstName} ${person.lastName} tem ${person.age} anos e pesa ${person.weight}!<br />Ele é casado? ${person.married}`
+				);
+			</script>
+		</fieldset>
+
+		<script>
+			// Fazendo uma conexão entre objetos
+			let x = person;
+
+			x.firstName = "Mary"; // Altera o firstName de person e de x
+		</script>
+	</body>
+</html>
