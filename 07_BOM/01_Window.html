@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Window</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+
+			h2 {
+				font-size: 1.5em;
+			}
+
+			button {
+				padding: 0.6em;
+				font-size: 1em;
+				color: white;
+				margin: 0.6em;
+				border: 1px solid darkblue;
+				border-radius: 5px;
+				background-color: blue;
+				cursor: pointer;
+				box-shadow: 3px 3px 6px rgba(5, 25, 56, 0.428);
+			}
+
+			button:hover {
+				background-color: rgb(24, 24, 213);
+			}
+
+			button:active {
+				box-shadow: none;
+			}
+		</style>
+	</head>
+	<body onload="getWindowSize()">
+		<hgroup>
+			<h1>Window</h1>
+		</hgroup>
+		<h2>Tamanho da Window</h2>
+		<div class="inputBox">
+			<label for="windowHeight">Altura da Window: </label>
+			<input type="text" name="windowHeight" id="windowHeight" readonly />
+		</div>
+		<br />
+		<div class="inputBox">
+			<label for="windowWidth">Largura da Window: </label>
+			<input type="text" name="windowWidth" id="windowWidth" readonly />
+		</div>
+		<h2>Métodos da Window</h2>
+		<ul>
+			<li>
+				<button type="button" id="wOpen">open()</button>
+			</li>
+
+			<li>
+				<button type="button" id="wClose">close()</button>
+			</li>
+
+			<li>
+				<button type="button" id="wMoveTo">moveTo()</button>
+			</li>
+
+			<li>
+				<button type="button" id="wResizeTo">resizeTo()</button>
+			</li>
+		</ul>
+
+		<script>
+			// Inputs
+			let inputWindowHeight = document.getElementById("windowHeight");
+			let inputWindowWidth = document.getElementById("windowWidth");
+
+			function getWindowSize() {
+				inputWindowHeight.value = window.innerHeight; // Valor da altura da window
+				inputWindowWidth.value = window.innerWidth; // Valor da largura da window
+			}
+
+			window.addEventListener("resize", getWindowSize); // Quando mudar o tamanho, vai pegar o novo tamanho
+
+			// Botões
+			let buttonOpen = document.getElementById("wOpen");
+			let buttonClose = document.getElementById("wClose");
+			let buttonMoveTo = document.getElementById("wMoveTo");
+			let buttonResizeTo = document.getElementById("wResizeTo");
+
+			buttonOpen.addEventListener("click", () => {
+				window.open("../02_Objetos/01_CriandoUmObjeto.html");
+			});
+
+			buttonClose.addEventListener("click", () => {
+				window.close();
+			});
+
+			// Não funciona
+			buttonMoveTo.addEventListener("click", () => {
+				window.moveTo(500, 100);
+			});
+
+			// Não funciona
+			buttonResizeTo.addEventListener("click", () => {
+				window.resizeTo(600, 500);
+			});
+		</script>
+	</body>
+</html>
