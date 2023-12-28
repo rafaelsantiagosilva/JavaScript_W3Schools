@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Screen</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+
+			h2 {
+				font-size: 1.5em;
+			}
+
+			button {
+				padding: 0.6em;
+				font-size: 1em;
+				color: white;
+				margin: 0.6em;
+				border: 1px solid darkblue;
+				border-radius: 5px;
+				background-color: blue;
+				cursor: pointer;
+				box-shadow: 3px 3px 6px rgba(5, 25, 56, 0.428);
+			}
+
+			button:hover {
+				background-color: rgb(24, 24, 213);
+			}
+
+			button:active {
+				box-shadow: none;
+			}
+		</style>
+	</head>
+	<body onload="getScreenProprieties()">
+		<main>
+			<hgroup>
+				<h1>Screen (Tela para os mais íntimos)</h1>
+			</hgroup>
+			<h2>Propriedades da Tela</h2>
+			<div class="inputBox">
+				<label for="screenHeight">Altura da tela: </label>
+				<input type="text" name="screenHeight" id="screenHeight" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="screenWidth">Largura da tela: </label>
+				<input type="text" name="screenWidth" id="screenWidth" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="windowWidth">Altura disponível da tela: </label>
+				<input
+					type="text"
+					name="screenAvailHeight"
+					id="screenAvailHeight"
+					readonly
+				/>
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="screenAvailWidth">Largura disponível da tela: </label>
+				<input
+					type="text"
+					name="screenAvailWidth"
+					id="screenAvailWidth"
+					readonly
+				/>
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="screenColorDepth">Profundidade da cor da tela: </label>
+				<input
+					type="text"
+					name="screenColorDepth"
+					id="screenColorDepth"
+					readonly
+				/>
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="screenPixelDepth">Profundidade dos pixels da tela: </label>
+				<input
+					type="text"
+					name="screenPixelDepth"
+					id="screenPixelDepth"
+					readonly
+				/>
+			</div>
+		</main>
+
+		<script>
+			function getScreenProprieties() {
+				// Altura e largura cruas da tela
+				document.getElementById("screenHeight").value = screen.height + 'px';
+				document.getElementById("screenWidth").value = screen.width + 'px';
+
+				// Altura e largura disponiveis da tela, desconsiderando interfaces
+				document.getElementById("screenAvailHeight").value = screen.availHeight + 'px';
+				document.getElementById("screenAvailWidth").value = screen.availWidth + 'px';
+
+				// Profundidade da cor (quantidade de bits)
+				document.getElementById("screenColorDepth").value = screen.colorDepth + ' bits';
+
+				// Profundidade dos pixels (quantidade de bits)
+                    document.getElementById("screenPixelDepth").value = screen.pixelDepth + ' bits';
+
+			}
+		</script>
+	</body>
+</html>
