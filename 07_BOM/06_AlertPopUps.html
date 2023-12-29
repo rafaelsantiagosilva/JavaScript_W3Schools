@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Navigator</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+		</style>
+	</head>
+	<body onload="getNavigatorProprieties()">
+		<main>
+			<hgroup>
+				<h1>Alerts - Pop-ups no JavaScript</h1>
+			</hgroup>
+		</main>
+
+		<script type="text/javascript" defer>
+			// Alert
+			window.alert("Hello World!");
+
+			// Confirm
+			if (window.confirm("Are you fine?")) {
+				alert("You pressed ok!");
+			} else {
+				alert("You pressed cancel!");
+			}
+
+			// Prompt
+			let name = window.prompt(
+				"Please, enter with yout name: ",
+				"Harry Potter"
+			);
+			if (name == null || name == "") {
+				alert("User cancelled the prompt");
+			} else {
+                    alert(`Hello ${name}!`);
+               }
+
+               // Da para fazer quebras de linha com \n
+		</script>
+	</body>
+</html>
