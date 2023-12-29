@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Navigator</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+
+			h2 {
+				font-size: 1.5em;
+			}
+
+			button {
+				padding: 0.6em;
+				font-size: 1em;
+				color: white;
+				margin: 0.6em;
+				border: 1px solid darkblue;
+				border-radius: 5px;
+				background-color: blue;
+				cursor: pointer;
+				box-shadow: 3px 3px 6px rgba(5, 25, 56, 0.428);
+			}
+
+			button:hover {
+				background-color: rgb(24, 24, 213);
+			}
+
+			button:active {
+				box-shadow: none;
+			}
+
+			input {
+				min-width: 20em;
+			}
+		</style>
+	</head>
+	<body onload="getNavigatorProprieties()">
+		<main>
+			<hgroup>
+				<h1>Navigator (browser, ou navegador para os mais íntimos)</h1>
+			</hgroup>
+			<h2>Propriedades e Métodos do navegador</h2>
+			<div class="inputBox">
+				<label for="nCookieEnabled">Cookies estão ativos? </label>
+				<input type="text" name="nCookieEnabled" id="nCookieEnabled" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nAppName"
+					>Nome do aplicativo do navegador (removido, o padrão é Netscape):
+				</label>
+				<input type="text" name="nAppName" id="nAppName" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nAppCodeName"
+					>Código do nome do aplicativo do navegador (removido, o padrão é
+					Mozilla):
+				</label>
+				<input type="text" name="nAppCodeName" id="nAppCodeName" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nProduct"
+					>Nome do mecanismo do navegador (removido, o padrão é Grecko):
+				</label>
+				<input type="text" name="nProduct" id="nProduct" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nAppVersion">Versão do navegador: </label>
+				<input type="text" name="nAppVersion" id="nAppVersion" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nUserAgent"
+					>Cabeçalho user-agent enviado pelo navegador para o servidor:
+				</label>
+				<input type="text" name="nUserAgent" id="nUserAgent" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nPlataform">Plataforma do navegador: </label>
+				<input type="text" name="nPlataform" id="nPlataform" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nLanguage">Linguagem do navegador: </label>
+				<input type="text" name="nLanguage" id="nLanguage" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nOnLine">Navegador está online? </label>
+				<input type="text" name="nOnLine" id="nOnLine" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="nJavaEnabled">Java está ativado? </label>
+				<input type="text" name="nJavaEnabled" id="nJavaEnabled" readonly />
+			</div>
+		</main>
+
+		<script type="text/javascript">
+			function getNavigatorProprieties() {
+			     document.getElementById('nCookieEnabled').value = navigator.cookieEnabled;
+			     document.getElementById('nAppName').value = navigator.appName;
+			     document.getElementById('nAppCodeName').value = navigator.appCodeName;
+			     document.getElementById('nProduct').value = navigator.product;
+			     document.getElementById('nAppVersion').value = navigator.appVersion;
+			     document.getElementById('nUserAgent').value = navigator.userAgent;
+			     document.getElementById('nPlataform').value = navigator.platform;
+			     document.getElementById('nLanguage').value = navigator.language;
+			     document.getElementById('nOnLine').value = navigator.onLine;
+			     document.getElementById('nJavaEnabled').value = navigator.javaEnabled();
+			}
+		</script>
+	</body>
+</html>
