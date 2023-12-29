@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>window.history</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+
+			h2 {
+				font-size: 1.5em;
+			}
+
+			button {
+				padding: 0.6em;
+				font-size: 1em;
+				color: white;
+				margin: 0.6em;
+				border: 1px solid darkblue;
+				border-radius: 5px;
+				background-color: blue;
+				cursor: pointer;
+				box-shadow: 3px 3px 6px rgba(5, 25, 56, 0.428);
+			}
+
+			button:hover {
+				background-color: rgb(24, 24, 213);
+			}
+
+			button:active {
+				box-shadow: none;
+			}
+
+			input {
+				min-width: 40em;
+			}
+		</style>
+	</head>
+	<body onload="getLocationProprieties()">
+		<main>
+			<hgroup>
+				<h1>window.history</h1>
+			</hgroup>
+			<div style="display: flex; justify-content: center;">
+                    <button type="button" id="back">⏪Voltar</button>
+                                   <button type="button" id="forward">Avançar⏩</button>
+               </div>
+		</main>
+
+		<script type="text/javascript">
+			function back(){
+                    window.history.back();
+               }
+
+               function forward(){
+                    window.forward.forward();
+               }
+
+               document.getElementById('back').addEventListener('click', back); // Função da setinha de voltar do navegador
+               document.getElementById('forward').addEventListener('click', forward) // Função da setinha de avançar do navegador
+		</script>
+	</body>
+</html>
