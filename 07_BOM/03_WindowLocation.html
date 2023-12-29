@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>window.location</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+
+			h2 {
+				font-size: 1.5em;
+			}
+
+			button {
+				padding: 0.6em;
+				font-size: 1em;
+				color: white;
+				margin: 0.6em;
+				border: 1px solid darkblue;
+				border-radius: 5px;
+				background-color: blue;
+				cursor: pointer;
+				box-shadow: 3px 3px 6px rgba(5, 25, 56, 0.428);
+			}
+
+			button:hover {
+				background-color: rgb(24, 24, 213);
+			}
+
+			button:active {
+				box-shadow: none;
+			}
+
+			input {
+				min-width: 40em;
+			}
+		</style>
+	</head>
+	<body onload="getLocationProprieties()">
+		<main>
+			<hgroup>
+				<h1>window.location</h1>
+			</hgroup>
+			<h2>Propriedades da Tela</h2>
+			<div class="inputBox">
+				<label for="wlHref">href: </label>
+				<input type="text" name="wlHref" id="wlHref" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="wlHostName">Servidor (host): </label>
+				<input type="text" name="wlHostName" id="wlHostName" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="wlPathName">Caminho (arquivo): </label>
+				<input type="text" name="wlPathName" id="wlPathName" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="wlProtocol">Protocolo: </label>
+				<input type="text" name="wlProtocol" id="wlProtocol" readonly />
+			</div>
+			<br />
+			<div class="inputBox">
+				<label for="newUrl">Nova URL: </label>
+				<input
+					type="text"
+					name="newUrl"
+					id="newUrl"
+					value="https://www.w3schools.com"
+				/>
+				<button
+					type="button"
+					id="wlAssign"
+					onclick="changePage(document.getElementById('newUrl').value)"
+				>
+					Mudar de página
+				</button>
+			</div>
+		</main>
+
+		<script type="text/javascript">
+			function getLocationProprieties() {
+				// URL
+				document.getElementById("wlHref").value = window.location.href;
+
+				// Servidor
+				if (window.location.hostname == "") {
+					document.getElementById("wlHostName").value = "Nenhum :(";
+				} else {
+					document.getElementById("wlHostName").value =
+						window.location.hostname;
+				}
+
+				// Caminho do arquivo
+				document.getElementById("wlPathName").value = window.location.pathname;
+
+				// Protocolo -> http ou https
+				document.getElementById("wlProtocol").value = window.location.protocol;
+			}
+
+			function changePage(newUrl) {
+				// Carrega um novo arquivo
+				window.location.assign(newUrl);
+			}
+		</script>
+	</body>
+</html>
