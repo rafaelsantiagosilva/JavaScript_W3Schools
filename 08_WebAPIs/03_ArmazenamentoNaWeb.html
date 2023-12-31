@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>localStorage</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			input {
+				width: 10em;
+			}
+
+			button {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body onload="localStorageInfo()">
+		<header>
+			<h1>localStorage</h1>
+		</header>
+		<main>
+			<button onclick="mudarNome()">Mudar Nome</button>
+			<button onclick="mostrarNome()">Mostrar Nome</button>
+			<button onclick="removerNome()">Remover Nome</button>
+			<button onclick="removerTudo()">Remover Tudo</button>
+			<ul>
+				<li id="length"></li>
+				<li id="key"></li>
+			</ul>
+		</main>
+	</body>
+	<script>
+		function localStorageInfo() {
+			document.getElementById(
+				"length"
+			).innerText = `Temos ${localStorage.length} item guardados localmente!`;
+			document.getElementById("key").innerText = `\"${localStorage.key(
+				0
+			)}\" é o primeiro item guardado`;
+		}
+
+		function mudarNome() {
+			let novoNome = prompt("Digite o novo nome: ");
+			localStorage.setItem("nome", novoNome);
+			alert("Nome mudado!");
+               localStorageInfo();
+		}
+
+		function removerNome() {
+			localStorage.removeItem("nome");
+			alert("Nome removido!");
+               localStorageInfo();
+		}
+
+		function removerTudo() {
+			localStorage.clear();
+			alert("Tudo foi removido!");
+               localStorageInfo();
+		}
+
+		function mostrarNome() {
+			alert(`O nome atual é ${localStorage.getItem("nome")}!`);
+		}
+	</script>
+</html>
