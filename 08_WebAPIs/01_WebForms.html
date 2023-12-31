@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web Forms Validation</title>
+          <style>
+               * {
+                    font-family: Arial, Helvetica, sans-serif;
+               }
+
+               h1 {
+                    text-align: center;
+               }
+
+               input{
+                    width: 10em;
+               }
+
+               button{
+                    cursor: pointer;
+               }
+          </style>
+	</head>
+	<body>
+		<header>
+			<h1>Web Forms Validation</h1>
+		</header>
+
+		<section>
+			<h2>checkValidity()</h2>
+			<p>Verifica a validade de um input <span style="color: red">*</span></p>
+			<input
+				type="number"
+				min="100"
+				max="300"
+				id="id1"
+                    required
+				placeholder="100 - 300"
+			/>
+			<button onclick="formValidation()">OK</button>
+			<p id="demo1"></p>
+		</section>
+
+		<section>
+			<h2>rangeOverflow</h2>
+			<p>Verifica se está acima da capacidade máxima</p>
+			<input type="number" name="id2" id="id2" max="100" />
+			<button onclick="formValidationOverRange()">OK</button>
+			<p id="demo2"></p>
+		</section>
+
+		<section>
+			<h2>rangeUnderflow</h2>
+			<p>Verifica se está abaixo da capacidade mínima</p>
+			<input type="number" name="id3" id="id3" min="100" />
+			<button type="button" min="100" onclick="formValidationUnderRange()">
+				Ok
+			</button>
+			<p id="demo3"></p>
+		</section>
+	</body>
+	<script>
+		// Verifica se os dados de um input estão ok.
+		function formValidation() {
+			const INP_OBJECT = document.getElementById("id1");
+			if (!INP_OBJECT.checkValidity()) {
+				document.getElementById("demo1").innerHTML =
+					INP_OBJECT.validationMessage;
+			} else {
+				document.getElementById("demo1").innerHTML = "Ok";
+			}
+		}
+
+		// Verifica se os dados de um input estão acima da capacidade máxima
+		function formValidationOverRange() {
+			let text = "Ok";
+			if (document.getElementById("id2").validity.rangeOverflow) {
+				text = "Valor muito alto!";
+			}
+			document.getElementById("demo2").innerHTML = text;
+		}
+
+		// Verifica se os dados de um input estão abaixo da capacidade mínima
+		function formValidationUnderRange() {
+			let text = "Ok";
+			if (document.getElementById("id3").validity.rangeUnderflow) {
+				text = "Valor muito pequeno!";
+			}
+			document.getElementById("demo3").innerHTML = text;
+		}
+	</script>
+</html>
