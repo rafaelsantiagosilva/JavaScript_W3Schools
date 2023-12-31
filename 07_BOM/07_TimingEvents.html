@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Timing Events</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+
+			button {
+				cursor: pointer;
+			}
+
+			button#buttonHide {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<hgroup>
+				<h1>Timing Events</h1>
+				<p>Depois de 3 segundos vai aparecer um botão:</p>
+				<button id="buttonHide" onclick="alert('Olá :D')">
+					Clique em mim!
+				</button>
+				<p>
+					De 3 em 3 segundos vai aparecer um item nessa lista:
+					<button onclick="stopInterval()">Parar</button>
+				</p>
+				<ol id="list"></ol>
+			</hgroup>
+		</main>
+
+		<script type="text/javascript">
+			function showButton() {
+				document.getElementById("buttonHide").style.display = "block";
+			}
+
+			function stopInterval() {
+				window.clearInterval(interval);
+			}
+
+			window.setTimeout(showButton, 3000);
+			let interval = window.setInterval(() => {
+				let item = document.createElement("li");
+				document.getElementById("list").appendChild(item);
+			}, 3000);
+			// clearTimeout(timeoutVariable) => Termina o timeout
+		</script>
+	</body>
+</html>
