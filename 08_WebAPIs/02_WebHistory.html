@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web History</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			input {
+				width: 10em;
+			}
+
+			button {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>History</h1>
+		</header>
+		<main>
+			<button type="button" onclick="back()">Voltar</button>
+			<button type="button" onclick="forward()">Avançar</button>
+			<br /><br />
+               <button type="button" onclick="go(-2)">Voltar 2 Páginas</button>
+               <button type="button" onclick="go(2)">Avançar 2 Páginas</button>
+
+		</main>
+	</body>
+	<script>
+          function back() {
+               window.history.back();
+          }
+
+          function forward() {
+               window.history.forward();
+          }
+
+          function go(qtdPages) {
+               window.history.go(qtdPages);
+          }
+     </script>
+</html>
