@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cookies</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				color: blue;
+			}
+
+			button {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body onload="checkCookie()">
+		<main>
+			<hgroup>
+				<h1>Cookies</h1>
+				<p>Bem vindo</p>
+				<button type="button">Limpar os Cookies</button>
+			</hgroup>
+		</main>
+
+		<script type="text/javascript">
+               // Não funciona
+
+			function setCookies(cookieName, cookieValue, expireCookieDate) {
+				const ACTUAL_DATE = new Date();
+
+				ACTUAL_DATE.setTime(
+					ACTUAL_DATE.getTime() + expireCookieDate * 24 * 60 * 60 * 1000
+				);
+
+				let expires = "expires=" + ACTUAL_DATE.toUTCString();
+				document.cookie =
+					cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+			}
+
+			function getCookie(cookieName) {
+				let name = cookieName + "=";
+				let decodedCookie = decodeURIComponent(document.cookie);
+				let cookieArray = decodedCookie.split(";");
+				cookieArray.forEach((cookie) => {
+					while (cookie.charAt(0) == " ") {
+						cookie = cookie.substring(1);
+					}
+
+					if (cookie.indexOf(name) == 0) {
+						return cookie.substring(name.length, cookie.length);
+					}
+				});
+
+				return "";
+			}
+
+			function checkCookie() {
+				let username = getCookie("username");
+				if (username != "") {
+					alert(`Bem-vindo novamente ${username} !`);
+				} else {
+					username = prompt("Por favor, entre com seu nome: ", "Harry Potter");
+					if (username != "" && username != null) {
+						setCookies("username", username, 365);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
