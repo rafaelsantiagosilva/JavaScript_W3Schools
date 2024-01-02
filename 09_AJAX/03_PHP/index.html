@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>03: AJAX com PHP</title>
+	</head>
+	<body>
+		<h1>AJAX com PHP</h1>
+		<p>Comece digitando um nome feminino no input abaixo:</p>
+		<p>Sugestão: <span id="textHint"></span></p>
+
+		<form>
+			<label for="inputName">Nome: </label>
+			<input
+				type="text"
+				name="inputName"
+				id="inputName"
+				onkeyup="showHint(this.value)"
+			/>
+		</form>
+
+          <script src="./script.js"></script>
+	</body>
+</html>
