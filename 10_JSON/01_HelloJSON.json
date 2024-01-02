@@ -1,0 +1,9 @@
+{
+	"name": "John",
+	"age": 46,
+	"married": false,
+	"weight": 56.7,
+	"childs": ["William", "Junior", "Mary"],
+	"home": { "color": "Blue", "rooms": 5 },
+     "wife": null
+}
