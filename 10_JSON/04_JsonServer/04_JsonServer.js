@@ -19,9 +19,7 @@ const XML_HTTP = new XMLHttpRequest();
 XML_HTTP.onload = function () {
      const MY_OBJ_3 = JSON.parse(this.responseText);
 
-     for (let i in MY_OBJ_3) {
-          document.getElementById("objectAJAX").innerHTML += `${i}:${MY_OBJ_3[i]}, `;
-     }
+     document.getElementById("objectAJAX").innerHTML = MY_OBJ_3.name;
 
      XML_HTTP.open("GET", "./04_JsonServer.txt");
      XML_HTTP.send();
