@@ -52,6 +52,6 @@ if ($q !== "") {
      }
 } 
 
-// Imprimindo "sem sugestão" se não for encotrada uma sugestão correspondente
+// Imprimindo "sem sugestão" se não for encontrada uma sugestão correspondente
 echo $hint === "" ? "sem sugestões" : $hint;
 ?>
