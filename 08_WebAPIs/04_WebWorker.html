@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web Workers</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			input {
+				width: 10em;
+			}
+
+			button {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Web Workers</h1>
+               <p align="center">Funciona sem parar, enquanto você pode fazer outras coisas no site!</p>
+		</header>
+		<main>
+               <p>Número: <output id="result"></output></p>
+			<button onclick="startWorker()">Começar a contar</button>
+               <button onclick="finishWorker()">Parar de contar</button>
+		</main>
+	</body>
+	<script>
+		let worker;
+          
+          function startWorker() {
+               if(typeof(worker) == "undefined") {
+                    // Se o navegador suportar workers...
+                    // ...pega e começa a rodar esse arquivo
+                    worker = new Worker("04_WebWorkers.js");
+               } else {
+                    // Senão...
+                    window.alert("Sinto muito, mas seu navegador não suporta workers! :(");
+               }
+
+               // Exibindo output
+               worker.onmessage = (event) => {
+                    document.getElementById("result").innerHTML = event.data;
+               }
+          }
+
+          function finishWorker() {
+               // Para com worker
+               worker.terminate();
+               worker = undefined;
+          }
+	</script>
+</html>
