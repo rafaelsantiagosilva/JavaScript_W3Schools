@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Geolocation API</title>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			input {
+				width: 10em;
+			}
+
+			button {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Geolocation API</h1>
+			<p>Exibe a sua localização geográfica!</p>
+		</header>
+		<main>
+			<button onclick="getLocation()">Mostrar localização</button>
+			<p id="userLocation"></p>
+			<div id="mapHolder"></div>
+		</main>
+	</body>
+	<script>
+		const POSITION_DOM_PLACE = document.getElementById("userLocation");
+
+		function getLocation() {
+			// Verifica se é suportado
+			if (navigator.geolocation) {
+				// Retornando um objeto com a localização para a função
+				navigator.geolocation.getCurrentPosition(showPosition);
+				navigator.geolocation.getCurrentPosition(showPositionInMap);
+			} else {
+				POSITION_DOM_PLACE.innerHTML =
+					"Geolocation não é suportada neste navegador!";
+			}
+		}
+
+		function showPosition(position) {
+			// Recebendo as informações do objeto
+			POSITION_DOM_PLACE.innerHTML =
+				"Latitude: " +
+				position.coords.latitude +
+				"<br />Longitude: " +
+				position.coords.longitude;
+		}
+
+		// Mostrando em um mapa (Não funciona)
+		function showPositionInMap(position) {
+			let latitudeAndLongitude =
+				position.coords.latitude + "," + position.coords.longitude;
+
+			let img_url = `https://maps.googleapis.com/maps/api/staticmap?center=${latitudeAndLongitude}&zoom=14&size=400x300&sensor=false&key=YOUR_KEY`;
+
+			document.getElementById(
+				"mapHolder"
+			).innerHTML = `<img src=\"${img_url}\"></img>`;
+		}
+	</script>
+</html>
