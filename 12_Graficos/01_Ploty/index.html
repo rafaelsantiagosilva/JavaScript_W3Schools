@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Plotly.js</title>
+
+		<!-- CDN do Ploty.js -->
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style>
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			body {
+				background-color: white;
+			}
+
+			header {
+				text-align: center;
+			}
+
+			.title {
+				color: rgb(15, 15, 235);
+				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.403);
+				text-align: center;
+				transform: scale(1.3);
+			}
+
+			h1 {
+				font-size: 2.5em;
+			}
+
+			header > p {
+				font-size: 1.3em;
+				font-weight: 400;
+			}
+
+			h2 {
+				font-size: 1.2em;
+			}
+
+			.flex-center {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1 class="title">Plotly.js</h1>
+			<p>É de graça e open-source!</p>
+		</header>
+
+		<section class="flex-center">
+			<h2>Apresenta os seguintes tipos de gráficos:</h2>
+			<ul>
+				<li>Barras verticais e horizontais;</li>
+				<li>Pizza e donuts;</li>
+				<li>Linhas;</li>
+				<li>Dispersão e bolhas;</li>
+				<li>Equações;</li>
+				<li>3D;</li>
+				<li>Estatísticos;</li>
+				<li>Mapas SVG;</li>
+				<li>...</li>
+			</ul>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Barras verticais</h2>
+			<div id="vertical-bars"></div>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Barras horizontais</h2>
+			<div id="horizontal-bars"></div>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Pizza</h2>
+			<div id="pizza"></div>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Donut</h2>
+			<div id="donut"></div>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Equações</h2>
+			<div id="equation"></div>
+			<div id="equation-markers"></div>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Dispersão</h2>
+			<div id="scatter-plot"></div>
+		</section>
+
+
+		<section class="flex-center">
+			<h2 class="title">Linha</h2>
+			<div id="line"></div>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Lineares</h2>
+			<div id="linear"></div>
+		</section>
+
+		<section class="flex-center">
+			<h2 class="title">Múltiplas linhas</h2>
+			<div id="multiple-lines"></div>
+		</section>
+		<!-- Scripts -->
+		<script src="./JavaScript/verticalBars.js"></script>
+		<script src="./JavaScript/horizontalBars.js"></script>
+		<script src="./JavaScript/pizza.js"></script>
+		<script src="./JavaScript/donut.js"></script>
+		<script src="./JavaScript/equations.js"></script>
+		<script src="./JavaScript/equationsMarkers.js"></script>
+		<script src="./JavaScript/scatterPlots.js"></script>
+		<script src="./JavaScript/line.js"></script>
+		<script src="./JavaScript/linear.js"></script>
+		<script src="./JavaScript/multipleLinear.js"></script>
+	</body>
+</html>
